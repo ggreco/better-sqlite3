@@ -23,9 +23,15 @@
       ],
     },
     {
-      'target_name': 'test_extension',
-      'dependencies': ['deps/sqlite3.gyp:sqlite3'],
-      'conditions': [['sqlite3 == ""', { 'sources': ['deps/test_extension.c'] }]],
+      'target_name': 'clear_build_directory',
+      'dependencies': ['better_sqlite3'],
+      'type': 'none',
+      'actions': [{
+          'action_name': 'clear_build',
+          'inputs': [],
+          'outputs': ["test.txt"],
+          'action': ['node', 'rm.js', "<(PRODUCT_DIR)"]
+      }]
     },
   ],
 }
