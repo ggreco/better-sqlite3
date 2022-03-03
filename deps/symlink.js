@@ -14,6 +14,11 @@ const filenames = process.argv.slice(4).map(str => path.basename(str));
  */
 
 for (const filename of filenames) {
-	fs.accessSync(path.join(source, filename));
-	fs.symlinkSync(path.join(source, filename), path.join(dest, filename), 'file');
+	if (!fs.existsSync(dest)) {
+		fs.mkdirSync(dest, { recursive: true })
+	}
+	const s = path.join(source, filename), d = path.join(dest, filename)
+	fs.accessSync(s);
+	if (!fs.existsSync(d))
+		fs.symlinkSync(s, d, 'file');
 }
