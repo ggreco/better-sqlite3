@@ -34,7 +34,7 @@
           '-O0',
         ],
         'xcode_settings': {
-          'MACOSX_DEPLOYMENT_TARGET': '10.7',
+          'MACOSX_DEPLOYMENT_TARGET': '10.10',
           'GCC_OPTIMIZATION_LEVEL': '0',
           'GCC_GENERATE_DEBUGGING_SYMBOLS': 'YES',
         },
@@ -56,7 +56,7 @@
           '-O3',
         ],
         'xcode_settings': {
-          'MACOSX_DEPLOYMENT_TARGET': '10.7',
+          'MACOSX_DEPLOYMENT_TARGET': '10.10',
           'GCC_OPTIMIZATION_LEVEL': '3',
           'GCC_GENERATE_DEBUGGING_SYMBOLS': 'NO',
           'DEAD_CODE_STRIPPING': 'YES',

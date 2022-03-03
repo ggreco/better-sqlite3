@@ -3,15 +3,17 @@
 # ===
 
 {
-  'includes': ['deps/common.gypi'],
+  'includes': ['deps/common.gypi', 'deps/defines.gypi'],
   'targets': [
     {
       'target_name': 'better_sqlite3',
-      'dependencies': ['deps/sqlite3.gyp:sqlite3'],
-      'sources': ['src/better_sqlite3.cpp'],
+      'sources': ['deps/sqlite3/sqlite3.c', 'src/better_sqlite3.cpp'],
+      'include_dirs': ['deps/sqlite3/'],
       'cflags': ['-std=c++14'],
       'xcode_settings': {
+        'OTHER_CFLAGS': ['-std=c99'],
         'OTHER_CPLUSPLUSFLAGS': ['-std=c++14', '-stdlib=libc++'],
+        'WARNING_CFLAGS': ['-w'],
       },
       'conditions': [
         ['OS=="linux"', {
@@ -21,17 +23,14 @@
           ],
         }],
       ],
-    },
-    {
-      'target_name': 'clear_build_directory',
-      'dependencies': ['better_sqlite3'],
-      'type': 'none',
-      'actions': [{
-          'action_name': 'clear_build',
-          'inputs': [],
-          'outputs': ["test.txt"],
-          'action': ['node', 'rm.js', "<(PRODUCT_DIR)"]
-      }]
-    },
+      'configurations': {
+        'Debug': {
+          'msvs_settings': { 'VCCLCompilerTool': { 'RuntimeLibrary': 1 } }, # static debug
+        },
+        'Release': {
+          'msvs_settings': { 'VCCLCompilerTool': { 'RuntimeLibrary': 0 } }, # static release
+        },
+      },
+    }
   ],
 }
