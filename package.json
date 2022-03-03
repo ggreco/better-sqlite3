@@ -13,7 +13,8 @@
     "binding.gyp",
     "src/*.[ch]pp",
     "lib/**",
-    "deps/**"
+    "deps/**",
+    "rm.js"
   ],
   "dependencies": {
     "bindings": "^1.5.0"
