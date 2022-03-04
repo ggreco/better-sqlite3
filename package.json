@@ -1,5 +1,5 @@
 {
-  "name": "@wyscout/better-sqlite3",
+  "name": "@ggreco/better-sqlite3",
   "version": "7.5.4",
   "description": "The fastest and simplest library for SQLite3 in Node.js.",
   "homepage": "http://github.com/JoshuaWise/better-sqlite3",
@@ -13,8 +13,7 @@
     "binding.gyp",
     "src/*.[ch]pp",
     "lib/**",
-    "deps/**",
-    "rm.js"
+    "deps/**"
   ],
   "dependencies": {
     "bindings": "^1.5.0"

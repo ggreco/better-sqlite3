@@ -1,0 +1,26 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Test window compile
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches:
+      - main
+    
+jobs:
+  build_on_win:
+    runs-on: windows-2019
+    steps:
+    - uses: actions/checkout@v2     
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 14.x
+    - name: build module
+      run: npm install
+    - uses: actions/upload-artifact@v2
+      with:
+        name: windows-bin
+        path: build/Release/better-sqlite3.node
+        retention-days: 1
