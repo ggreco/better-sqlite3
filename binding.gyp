@@ -3,9 +3,9 @@
 # ===
 
 {
-  'includes': ['deps/common.gypi', 'deps/defines.gypi'],
   'targets': [
     {
+      'includes': ['deps/common.gypi', 'deps/defines.gypi'],
       'target_name': 'better_sqlite3',
       'sources': ['deps/sqlite3/sqlite3.c', 'src/better_sqlite3.cpp'],
       'include_dirs': ['deps/sqlite3/'],
