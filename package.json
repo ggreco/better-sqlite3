@@ -6,7 +6,7 @@
   "author": "Joshua Wise <joshuathomaswise@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git://github.com/JoshuaWise/better-sqlite3.git"
+    "url": "https://github.com/ggreco/better-sqlite3.git"
   },
   "main": "lib/index.js",
   "files": [
